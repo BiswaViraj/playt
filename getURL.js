@@ -1,4 +1,8 @@
-var search = require("youtube-search");
+const search = require("youtube-search");
+
+const download = require("./index");
+
+const fileNamer = require("./fileNamer");
 
 require("dotenv").config();
 
@@ -7,26 +11,38 @@ var opts = {
     key: process.env.YOUTUBE_KEY
 };
 let links = [];
+let titles = [];
 
-const getLink = linkArray => {
-    search("jsconf", opts, function(err, results) {
+const getLink = query => {
+    search(query, opts, function(err, results) {
         if (err) return console.log(err);
 
         results.forEach(function(result) {
-            console.log(result.link);
-            linkArray.push(result.link);
+            // console.log(result.link);
+            // console.log(result.title);
+
+            links.push(result.link);
+            titles.push(result.title);
         });
         let index = getIndex();
-        console.dir(linkArray[index]);
+        // console.log(titles[index]);
+
+        let title = fileNamer(titles[index]);
+        // console.log(title);
+
+        // console.dir(links[index]);
+        download(links[index], title);
     });
 };
 
-getLink(links);
+// getLink();
 
 let testIndex;
 
 const getIndex = () => {
-    testIndex = 2;
+    testIndex = 0;
     // console.log("hello");
     return testIndex;
 };
+
+module.exports = getLink;
