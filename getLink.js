@@ -7,7 +7,9 @@ const fileNamer = require("./fileNamer");
 require("dotenv").config();
 
 var opts = {
-    maxResults: 5,
+    maxResults: 10,
+    type: "video",
+    order: "relevance",
     key: process.env.YOUTUBE_KEY
 };
 let links = [];
@@ -16,33 +18,24 @@ let titles = [];
 const getLink = query => {
     search(query, opts, function(err, results) {
         if (err) return console.log(err);
-
+        let num = 1;
         results.forEach(function(result) {
-            // console.log(result.link);
-            // console.log(result.title);
+            console.log(`\n${num} ${result.title}`);
+            num++;
 
             links.push(result.link);
             titles.push(result.title);
         });
-        let index = getIndex();
-        // console.log(titles[index]);
-
-        let title = fileNamer(titles[index]);
-        // console.log(title);
-
-        // console.dir(links[index]);
-        download(links[index], title);
     });
 };
 
-// getLink();
+const getIndex = index => {
+    console.log(titles[index]);
+    let title = fileNamer(titles[index]);
 
-let testIndex;
+    download(links[index], title);
 
-const getIndex = () => {
-    testIndex = 0;
-    // console.log("hello");
-    return testIndex;
+    console.dir(links[index]);
 };
 
-module.exports = getLink;
+module.exports = { getLink, getIndex };
