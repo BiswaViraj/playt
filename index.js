@@ -4,9 +4,13 @@ const readline = require("readline");
 const path = require("path");
 const homedir = require("os").homedir();
 
+// var sys = require("sys");
+// var exec = require("child_process").exec;
+
 const download = (url, title) => {
     let folder = "playtSongs";
     const output = path.resolve(homedir, `./${folder}/${title}.mp3`);
+    let song = `${title}.mp3`;
     let dir = `${homedir}/${folder}`;
 
     if (!fs.existsSync(dir)) {
@@ -18,6 +22,10 @@ const download = (url, title) => {
 
     video.once("response", () => {
         starttime = Date.now();
+        // function puts(error, stdout, stderr) {
+        //     sys.puts(stdout);
+        // }
+        // exec(`mpv ${song}`, puts);
     });
     video.on("progress", (chunkLength, downloaded, total) => {
         const percent = downloaded / total;
