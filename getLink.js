@@ -1,9 +1,5 @@
 const ytSearch = require("yt-search");
 
-const download = require("./index");
-
-const fileNamer = require("./fileNamer");
-
 let links = [];
 let titles = [];
 const getLink = query => {
@@ -20,11 +16,5 @@ const getLink = query => {
         }
     });
 };
-const getIndex = index => {
-    console.log(titles[index]);
-    let title = fileNamer(titles[index]);
 
-    download(links[index], title);
-};
-
-module.exports = { getLink, getIndex };
+module.exports = { getLink, links, titles };

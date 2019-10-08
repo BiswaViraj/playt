@@ -18,6 +18,7 @@ const download = (url, title) => {
     let starttime;
 
     stream(url);
+    console.log(`Streaming...`);
 
     video.once("response", () => {
         starttime = Date.now();
@@ -42,6 +43,7 @@ const download = (url, title) => {
         );
         readline.moveCursor(process.stdout, 0, -1);
     });
+
     video.on("end", () => {
         process.stdout.write("\n\n");
     });

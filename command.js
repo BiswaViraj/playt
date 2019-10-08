@@ -1,7 +1,8 @@
 const program = require("commander");
 const { prompt } = require("inquirer");
 
-const { getLink, getIndex } = require("./getLink");
+const { getLink } = require("./getLink");
+const getIndex = require("./getIndex");
 
 const question = [
     {

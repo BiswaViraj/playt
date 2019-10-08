@@ -6,8 +6,7 @@ const stream = url => {
         console.log(stdout);
     }
 
-    exec(`cvlc --no-video --play-and-exit https://www.youtube.com${url}`, puts);
-    console.log(`Playing...`);
+    exec(`cvlc --no-video --play-and-exit ${url}`, puts);
 };
 
 module.exports = stream;
