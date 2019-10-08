@@ -3,14 +3,11 @@ const ytdl = require("ytdl-core");
 const readline = require("readline");
 const path = require("path");
 const homedir = require("os").homedir();
-
-// var sys = require("sys");
-// var exec = require("child_process").exec;
+const stream = require("./stream");
 
 const download = (url, title) => {
     let folder = "playtSongs";
     const output = path.resolve(homedir, `./${folder}/${title}.mp3`);
-    let song = `${title}.mp3`;
     let dir = `${homedir}/${folder}`;
 
     if (!fs.existsSync(dir)) {
@@ -20,12 +17,10 @@ const download = (url, title) => {
     video.pipe(fs.createWriteStream(output));
     let starttime;
 
+    stream(url);
+
     video.once("response", () => {
         starttime = Date.now();
-        // function puts(error, stdout, stderr) {
-        //     sys.puts(stdout);
-        // }
-        // exec(`mpv ${song}`, puts);
     });
     video.on("progress", (chunkLength, downloaded, total) => {
         const percent = downloaded / total;
@@ -40,10 +35,7 @@ const download = (url, title) => {
             ).toFixed(2)}MB)\n`
         );
         process.stdout.write(
-            `running for: ${downloadedMinutes.toFixed(2)}minutes`
-        );
-        process.stdout.write(
-            `, estimated time left: ${(
+            `estimated download time left: ${(
                 downloadedMinutes / percent -
                 downloadedMinutes
             ).toFixed(2)}minutes `
@@ -55,5 +47,4 @@ const download = (url, title) => {
     });
 };
 
-// download("https://www.youtube.com/watch?v=ESQVVfrRg7w", "test");
 module.exports = download;
