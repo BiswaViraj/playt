@@ -18,7 +18,7 @@ program.version("1.0.0").description("Stream and Download Youtube songs");
 
 program
     .command("search <songname>")
-    .alias("-s")
+    .alias("s")
     .description("Search for a song, write songname in double quotes")
     .action(songname => {
         console.log("Fetching...");

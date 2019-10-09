@@ -7,7 +7,7 @@ const stream = require("./stream");
 
 const download = (url, title) => {
     let folder = "playtSongs";
-    const output = path.resolve(homedir, `./${folder}/${title}.mp3`);
+    const output = path.resolve(homedir, `./${folder}/${title}.m4a`);
     let dir = `${homedir}/${folder}`;
 
     if (!fs.existsSync(dir)) {

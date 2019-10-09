@@ -7,7 +7,7 @@ let folder = "playtSongs";
 let dir = `${homedir}/${folder}`;
 
 const search = (url, title) => {
-    let song = `${dir}/${title}.mp3`;
+    let song = `${dir}/${title}.m4a`;
     if (!fs.existsSync(song)) {
         download(url, title);
     } else {

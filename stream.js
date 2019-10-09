@@ -1,4 +1,3 @@
-const sys = require("util");
 const exec = require("child_process").exec;
 
 const stream = url => {
@@ -6,7 +5,7 @@ const stream = url => {
         console.log(stdout);
     }
 
-    exec(`cvlc --no-video --play-and-exit ${url}`, puts);
+    exec(`vlc -Idummy --play-and-exit ${url}`, puts);
 };
 
 module.exports = stream;
