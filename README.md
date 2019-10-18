@@ -1,4 +1,4 @@
-# playt
+# PlaYT
 
 Stream or download youtube songs from terminal
 
