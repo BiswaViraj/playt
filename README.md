@@ -1,17 +1,19 @@
-# playt
+# PlaYT
 
 Stream or download youtube songs from terminal
 
-# Description
+## Description
 
 -   Playt is a CLI app written in Node.js
 -   It allows to stream or download audio from YouTube with in the Terminal by a simple command
 
 **!! Note**: VLC is required to stream
 
-# Commands
+## Commands
 
-`$ playt search "Song name"`
+```shell
+$ playt search "song name"
+```
 
 ![Search](assets/playtDemo.png)
 
@@ -20,6 +22,8 @@ Choose the one from the list by entering the number corresponding to it and it w
 
 If the song selected is already present in the "playtSongs" folder then it plays the offline/local file and doesn't download it again.
 
-`$ playt download "song name"`
+```shell
+$ playt download "song name"
+```
 
 This command only downloads the selected song and doesn't play it through the terminal.
