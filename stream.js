@@ -5,7 +5,7 @@ const stream = url => {
         console.log(stdout);
     }
 
-    exec(`vlc -Idummy --play-and-exit --volume=256 ${url}`, puts);
+    exec(`cvlc --no-video --play-and-exit ${url}`, puts);
 };
 
 module.exports = stream;
