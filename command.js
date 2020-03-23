@@ -25,7 +25,7 @@ program
         getLink(songname);
         prompt(question).then(n => {
             let index = n.num;
-
+            // pass the index to search
             getIndex(index - 1);
         });
     });

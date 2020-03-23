@@ -17,12 +17,15 @@ const download = (url, title) => {
     video.pipe(fs.createWriteStream(output));
     let starttime;
 
+    // streams the song
     stream(url);
     console.log(`Streaming...`);
 
+    // starts timer once download is started
     video.once("response", () => {
         starttime = Date.now();
     });
+    // keeps track of download progress
     video.on("progress", (chunkLength, downloaded, total) => {
         const percent = downloaded / total;
         const downloadedMinutes = (Date.now() - starttime) / 1000 / 60;
@@ -35,6 +38,7 @@ const download = (url, title) => {
                 1024
             ).toFixed(2)}MB)\n`
         );
+        // writes download progress to the console
         process.stdout.write(
             `estimated download time left: ${(
                 downloadedMinutes / percent -
