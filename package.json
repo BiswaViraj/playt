@@ -6,10 +6,10 @@
     "preferGlobal": true,
     "bin": "./command.js",
     "dependencies": {
-        "commander": "^5.0.0",
-        "inquirer": "^7.1.0",
+        "commander": "^5.1.0",
+        "inquirer": "^7.3.2",
         "yt-search": "^1.1.2",
-        "ytdl-core": "^2.0.1"
+        "ytdl-core": "^2.1.7"
     },
     "devDependencies": {},
     "scripts": {
