@@ -7,7 +7,7 @@
     "bin": "./command.js",
     "dependencies": {
         "commander": "^5.1.0",
-        "inquirer": "^7.3.2",
+        "inquirer": "^13.2.1",
         "yt-search": "^2.10.4",
         "ytdl-core": "^2.1.7"
     },
