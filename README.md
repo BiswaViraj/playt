@@ -2,6 +2,10 @@
 
 Stream or download youtube songs from terminal
 
+> **Time capsule (2019):** one of the first tools built here that other people
+> could actually install and use — a Node.js CLI, published and demoed, from
+> the early terminal-tinkering days. Kept intact below as it was written.
+
 ## Description
 
 -   Playt is a CLI app written in Node.js
@@ -27,3 +31,10 @@ $ playt download "song name"
 ```
 
 This command only downloads the selected song and doesn't play it through the terminal.
+
+---
+
+**Active:** 2019, with dependency bumps through 2026
+**Stack:** Node.js, commander, inquirer, yt-search, ytdl-core
+
+**Status:** archived as-is — part of the journey (2019).
